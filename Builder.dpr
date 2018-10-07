@@ -19,7 +19,7 @@ type
   (*Builder - abstract class as interface for creating  objects -> product in this case*)
   TPizzaBuilder = class abstract
   protected
-    pizza: TPizza;
+    fPizza: TPizza;
     public
     function GetPizza: TPizza;
     procedure CreateNewPizzaProduct;
@@ -61,34 +61,34 @@ type
 
 procedure THawaiianPizzaBuilder.BuildDough;
 begin
-  pizza.fDough:= 'cross';
+  fPizza.fDough:= 'cross';
 end;
 
 procedure THawaiianPizzaBuilder.BuildSauce;
 begin
-  pizza.fSauce:= 'mild';
+  fPizza.fSauce:= 'mild';
 end;
 
 procedure THawaiianPizzaBuilder.BuildTopping;
 begin
-  pizza.fTopping:= 'ham + pineapple';
+  fPizza.fTopping:= 'ham + pineapple';
 end;
 
 { TSpicyPizzaBuilder }
 
 procedure TSpicyPizzaBuilder.BuildDough;
 begin
-  pizza.fDough:= 'pan baked';
+  fPizza.fDough:= 'pan baked';
 end;
 
 procedure TSpicyPizzaBuilder.BuildSauce;
 begin
-  pizza.fSauce:= 'hot';
+  fPizza.fSauce:= 'hot';
 end;
 
 procedure TSpicyPizzaBuilder.BuildTopping;
 begin
-  pizza.fTopping:= 'pepperoni + salami';
+  fPizza.fTopping:= 'pepperoni + salami';
 end;
 
 { TCook }
@@ -115,12 +115,12 @@ end;
 
 procedure TPizzaBuilder.CreateNewPizzaProduct;
 begin
-  self.pizza:= TPizza.Create;
+  fPizza:= TPizza.Create;
 end;
 
 function TPizzaBuilder.GetPizza: TPizza;
 begin
-   Result:= pizza;
+   Result:= fPizza;
 end;
 
 { TPizza }
